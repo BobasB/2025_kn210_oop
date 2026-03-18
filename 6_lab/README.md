@@ -18,3 +18,32 @@ deactivate
 ```bash
 python anime.py
 ```
+## Віртуальні середовища з Pipenv
+```
+python -m venv ./my_env
+source ./my_env/bin/activate
+```
+- встановлюємо пакети для розробки та тестування
+```bash
+pip install flake8
+pip install mypy
+pip list
+pip freeze > requirements-dev.txt
+pip install -r requirements.txt
+pip list
+deactivate
+```
+- створюємо віртуальне середовище з Pipenv, який автоматично створює та керує віртуальними середовищами для ваших проектів, а також додає та видаляє пакети з файлу Pipfile як ви їх встановлюєте або видаляєте
+
+```bash
+cd ../
+cd 2_pipenv
+pipenv -h
+python -V
+pipenv --python 3.13
+pipenv install jikanpy-v4 Flask
+pipenv install flake8 mypy --dev
+pipenv graph
+```
+
+---
