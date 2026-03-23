@@ -1,0 +1,22 @@
+site_name: Лабораторна робота №6 - Віртуальні середовища Python
+site_description: Документація по роботі з віртуальними середовищами Python (venv, Pipenv, Poetry)
+site_author: BobasB
+
+theme:
+  name: readthedocs
+  language: uk
+
+nav:
+  - Головна: index.md
+  - Вступ до віртуальних середовищ: introduction.md
+  - Робота з venv: venv.md
+  - Робота з Pipenv: pipenv.md
+  - Робота з Poetry: poetry.md
+  - Проект Anime API: anime_project.md
+  - Інструкції: instructions.md
+
+markdown_extensions:
+  - codehilite
+  - admonition
+  - toc:
+      permalink: true
