@@ -11,7 +11,8 @@ def count_passed_parameters(*args):
     return len(args)
 
 class MainLab:
-    GLOBALS = [1, 2]
+    """Клас MainLab є idempotent, тобто його методи не мають побічних ефектів."""
+    GLOBALS = [1, 2, 3, 4, 5]
     def __init__(self):
         self.name = "Main Lab"
 
