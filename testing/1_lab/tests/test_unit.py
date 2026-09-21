@@ -1,5 +1,8 @@
 import unittest
-from lab_main.main import check_passed_parameter, count_passed_parameters, MainLab
+from lab_main.main import check_passed_parameter, count_passed_parameters, \
+    MainLab, \
+    get_input_from_user, \
+    doing_api_call_to_external_system
 
 ###
 class TestCountPassedParameters(unittest.TestCase):
@@ -75,6 +78,29 @@ class TestMainLabConstructor(unittest.TestCase):
 
     def test_object_attributes(self):
         self.assertTrue(hasattr(self.main_lab, "name"), "Об'єкт повинен мати атрибут 'name'")
+
+
+class TestCheckInputFromUserFunction(unittest.TestCase):
+    """Тестуємо функцію get_input_from_user."""
+    def test_get_input_from_user(self):
+        """
+        Тестуємо, з використанням mock функції input всередині get_input_from_user.
+        """
+        from unittest.mock import patch
+
+        with patch('builtins.input', return_value='тестовий ввід'):
+            user_input = get_input_from_user()
+            self.assertEqual(user_input, 'тестовий ввід', "Очікується, що функція поверне 'тестовий ввід' при введенні користувачем 'тестовий ввід'")
+
+    def test_doing_api_call_to_external_system(self):
+        """
+        Тестуємо функцію з використанням mock для імітації виклику до зовнішньої системи.
+        """
+        from unittest.mock import patch
+
+        with patch('lab_main.main.doing_api_call_to_external_system', return_value={"status": "success", "data": "Результат від зовнішньої системи"}):
+            result = doing_api_call_to_external_system()
+            self.assertEqual(result, {"status": "success", "data": "Результат від зовнішньої системи"}, "Очікується, що функція поверне фіктивний результат від зовнішньої системи")
 
 
 if __name__ == "__main__":
