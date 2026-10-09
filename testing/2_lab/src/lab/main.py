@@ -1,9 +1,15 @@
 class MainLab:
     """Клас MainLab є idempotent, тобто його методи не мають побічних ефектів."""
     GLOBALS = [1, 2, 3, 4, 5]
-    def __init__(self):
-        self.name = "Main Lab"
+    def __init__(self, name: str = "Main Lab", test_var: int = 42):
+        self.name = name
+        self.test_var = test_var
 
+    @property
+    def output_name(self):
+        """Властивість для отримання імені об'єкта."""
+        return self.name + " - Output: " + str(self.test_var)
+    
     def return_numbers(self):
         for number in self.GLOBALS:
             yield number

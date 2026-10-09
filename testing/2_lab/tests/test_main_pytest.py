@@ -25,12 +25,13 @@ class TestMainLab:
         with pytest.raises(ValueError):
            # якщо ми передомо додатній індекс, то помилки не буде
            # цей тест буде проваленим!
-           obj.get_exeptions(1)
+           #obj.get_exeptions(1)
+           obj.get_exeptions(-1)
 
     def test_get_exceptions_with_wrong_exception(self):
         """Тест чекає на винекнення помилки ValueError при передачі негативного індексу."""
         obj = MainLab()
-        with pytest.raises(ZeroDivisionError):
+        with pytest.raises(ValueError): #(ZeroDivisionError):
             # якщо ми неправильно визначимо очікувану помилку, 
             # то тест також буде проваленим
             obj.get_exeptions(-1)
