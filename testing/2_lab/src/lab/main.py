@@ -1,9 +1,10 @@
 class MainLab:
     """Клас MainLab є idempotent, тобто його методи не мають побічних ефектів."""
     GLOBALS = [1, 2, 3, 4, 5]
-    def __init__(self, name: str = "Main Lab", test_var: int = 42):
+    def __init__(self, name: str = "Main Lab", test_var: int = 42, random_field: str | None = None):
         self.name = name
         self.test_var = test_var
+        self.random_field = random_field
 
     @property
     def output_name(self):
